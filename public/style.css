@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(252, 250, 248);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  margin-top: 0;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  height: 80px;
+}
+ul {
+  list-style: none;   
+  display: flex;    
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+ul a {
+  text-decoration: none;
+  font-size: 15px;
+  margin-left: 30px;
+  color: rgb(14, 13, 13);
+}
+a:hover{
+    color: rgb(78, 78, 231);
+    text-decoration: underline;
+}
+.second-div{
+    text-align: center;
+    height: 100px;
+    margin-top: 80px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.third-div {
+  width: 420px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+.login-btn {
+  display: block;         
+  width: 100%;
+  padding: 8px 0;        
+  background-color: #3b3570;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  text-decoration: none;
+  color: white;
+}
+footer {
+  margin-top: auto;
+  height: 70px;
+  background-color: #3b3570;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#footer{
+    color: gold;
+    margin-left: 8px;
+}
