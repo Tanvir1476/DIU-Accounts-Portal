@@ -15,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-.welcome {
+.navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -25,20 +25,21 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   height: 80px;
 }
-ul {
+.navbar ul {
   list-style: none;   
   display: flex;    
   padding: 0;
   margin: 0;
   gap: 20px;
 }
-ul a {
+.navbar ul a {
   text-decoration: none;
   font-size: 15px;
   margin-left: 30px;
   color: rgb(14, 13, 13);
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-a:hover{
+.navbar ul a:hover {
     color: rgb(78, 78, 231);
     text-decoration: underline;
 }

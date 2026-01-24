@@ -7,4 +7,5 @@ Route::get('/', function () {
 });
 
 Route::view('/login','login');
+Route::view('/contact','contact');
 Route::view('/get token','login');
