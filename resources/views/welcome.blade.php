@@ -14,7 +14,7 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="#">Semester Fee Amount</a></li>
-        <li><a href="Login">Get Token</a></li>
+        <li><a href="login">Get Token</a></li>
         <li><a href="contact">Contact Us</a></li>
       </ul>
     </div>
@@ -30,7 +30,7 @@
 </div>
 
 <footer>
-    © 2026 DIU Accounts Portal. All rights reserved. Developed by <span id="footer">Farhan Tanvir</span>
+    © 2026 DIU Accounts Portal. All rights reserved. Developed by <span id="footer">1476 & 1144</span>
 </footer>
 </body>
 </html>
