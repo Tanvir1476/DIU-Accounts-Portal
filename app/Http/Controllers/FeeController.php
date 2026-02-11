@@ -27,7 +27,7 @@ public function saveFee(Request $req)
 
     $fee->save();
 
-    return redirect('/list');
+    return back();
 }
 
 

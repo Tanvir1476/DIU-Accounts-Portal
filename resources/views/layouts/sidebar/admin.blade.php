@@ -2,6 +2,7 @@
     img {
         height: 30px;
         width: 150px;
+        margin-top: 0;
     }
 
     .sidebar {
