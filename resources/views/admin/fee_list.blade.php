@@ -97,7 +97,7 @@
 
         <div class="header-area">
             <h2>Fee List</h2>
-            <a href="/add" class="btn-view">Back</a>
+            <a href="/admin/add" class="btn-view">Back</a>
         </div>
 
 
@@ -122,8 +122,8 @@
                     <td>{{ $d->amount }}</td>
 
                     <td>
-                        <a class="action-edit" href="/edit/{{ $d->id }}">Edit</a>
-                        <a class="action-delete" href="/delete/{{ $d->id }}">Delete</a>
+                        <a class="action-edit" href="/admin/edit/{{ $d->id }}">Edit</a>
+                        <a class="action-delete" href="/admin/delete/{{ $d->id }}">Delete</a>
                     </td>
 
                 </tr>

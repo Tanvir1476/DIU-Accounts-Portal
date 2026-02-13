@@ -65,7 +65,7 @@
             Dashboard
         </a>
 
-        <a href="/add">
+        <a href="/admin/add">
             <i class="fa-solid fa-money-bill-wave"></i>
             Semester Fee
         </a>

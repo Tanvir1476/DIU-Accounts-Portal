@@ -79,7 +79,7 @@
 
             <h1>Add Semester Fee</h1>
 
-            <form action="/save" method="POST">
+            <form action="/admin/save" method="POST">
                 @csrf
 
                 <label for="department">Department</label>
@@ -113,7 +113,7 @@
                 <input type="number" name="amount" placeholder="Amount" id="amount" required>
 
                 <br><br>
-                <a href="/list" class="btn-view">View List</a>
+                <a href="/admin/list" class="btn-view">View List</a>
 
                 <button class="btn-save">
                     Save

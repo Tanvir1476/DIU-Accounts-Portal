@@ -59,7 +59,7 @@
 
         <div class="form-container">
 
-            <form action="/update/{{ $data->id }}" method="POST">
+            <form action="/admin/update/{{ $data->id }}" method="POST">
                 @csrf
 
                 <label>Department</label>
