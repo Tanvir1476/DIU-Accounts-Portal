@@ -1,14 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeeController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('/fee/view', [FeeController::class, 'viewFeeForm']);
+Route::post('/fee/get', [FeeController::class, 'getFee']);
+
         
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -70,4 +70,22 @@ class FeeController extends Controller
 
         return redirect('/admin/list');
     }
+
+    // Show User Fee Page
+    public function viewFeeForm()
+    {
+        return view('view_fee');
+    }
+
+
+    // Get Fee Data
+    public function getFee(Request $req)
+    {
+        $fee = SemesterFee::where('department', $req->department)
+            ->where('semester', $req->semester)
+            ->where('fee_type', $req->fee_type)
+            ->first();
+
+        return view('view_fee', compact('fee'));
+    }
 }
