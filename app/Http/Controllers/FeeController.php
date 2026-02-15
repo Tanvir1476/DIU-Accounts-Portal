@@ -28,7 +28,7 @@ class FeeController extends Controller
 
         $fee->save();
 
-        return back();
+        return back()->with('success', 'Data saved successfully!');;
     }
 
 
@@ -44,7 +44,7 @@ class FeeController extends Controller
     public function delete($id)
     {
         SemesterFee::find($id)->delete();
-        return redirect('/admin/list');
+        return redirect('/admin/list')->with('success', 'Deleted successfully!');
     }
 
 

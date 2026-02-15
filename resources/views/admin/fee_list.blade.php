@@ -100,6 +100,18 @@
             <a href="/admin/add" class="btn-view">Back</a>
         </div>
 
+        @if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: "{{ session('success') }}",
+                timer: 2000,
+                showConfirmButton: true
+            });
+        </script>
+        @endif
+
+
 
         <div class="table-container">
 

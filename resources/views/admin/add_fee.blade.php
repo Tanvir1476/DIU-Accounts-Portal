@@ -79,6 +79,18 @@
 
             <h1>Add Semester Fee</h1>
 
+            @if(session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: "{{ session('success') }}",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            </script>
+            @endif
+
+
             <form action="/admin/save" method="POST">
                 @csrf
 
