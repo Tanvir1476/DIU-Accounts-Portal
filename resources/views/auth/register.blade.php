@@ -18,7 +18,7 @@
 
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/fee/get">Semester Fee Amount</a></li>
+                <li><a href="/fee/view">Semester Fee Amount</a></li>
                 <li><a href="login">Get Token</a></li>
                 <li><a href="contact">Contact Us</a></li>
             </ul>
