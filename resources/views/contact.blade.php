@@ -12,7 +12,7 @@
         <img src="Images/logo_white.png" alt="DIU Logo" height="40px" width="158px">
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#">Semester Fee Amount</a></li>
+            <li><a href="/fee/view">Semester Fee Amount</a></li>
             <li><a href="#">Get Token</a></li>
             <li><a href="contact">Contact Us</a></li>
         </ul>
