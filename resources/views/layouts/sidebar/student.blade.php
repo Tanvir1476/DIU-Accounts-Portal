@@ -69,9 +69,9 @@
             View Serial
         </a>
 
-        <a href="">
+        <a href="gettoken">
             <i class="fa-solid fa-ticket"></i>
-            Give Token
+            Get Token
         </a>
     </nav>
 </aside

@@ -70,7 +70,7 @@
             Semester Fee
         </a>
 
-        <a href="">
+        <a href="/admin/tokens">
             <i class="fa-solid fa-list"></i>
             View Total Serial List
         </a>
