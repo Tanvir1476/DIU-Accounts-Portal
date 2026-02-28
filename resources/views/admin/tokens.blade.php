@@ -5,8 +5,16 @@
                 margin-left: 260px;
                 padding: 20px;
             }
-            #heading{
+
+            #heading {
                 font-size: 25px;
+            }
+
+            .status-box {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                flex-wrap: wrap;
             }
 
             .table-box {
@@ -57,6 +65,15 @@
                 color: #721c24;
             }
 
+            .current-badge {
+                background: #007bff;
+                color: #fff;
+                padding: 4px 8px;
+                border-radius: 15px;
+                font-size: 11px;
+                margin-left: 5px;
+            }
+
             .btn {
                 padding: 6px 10px;
                 border: none;
@@ -75,8 +92,17 @@
                 margin-left: 5px;
             }
 
+            .btn-disabled {
+                background: gray !important;
+                cursor: not-allowed;
+            }
+
             .btn:hover {
                 opacity: 0.8;
+            }
+            a{
+                display: flex;
+                align-items: center;
             }
         </style>
 
@@ -106,22 +132,34 @@
                         <td>{{ $r->email }}</td>
                         <td>{{ $r->fee_for }}</td>
                         <td>{{ $r->amount }}</td>
+
                         <td>
                             {{ $r->created_at->format('d M Y') }} <br>
                             <small>{{ $r->created_at->format('h:i A') }}</small>
                         </td>
 
+
                         <td>
-                            @if($r->status == 'Pending')
-                            <span class="status pending">Pending</span>
-                            @elseif($r->status == 'Approved')
-                            <span class="status approved">Approved</span>
-                            @else
-                            <span class="status rejected">Rejected</span>
-                            @endif
+                            <div class="status-box">
+
+                                @if($r->status == 'Pending')
+                                <span class="status pending">Pending</span>
+                                @elseif($r->status == 'Approved')
+                                <span class="status approved">Approved</span>
+                                @else
+                                <span class="status rejected">Rejected</span>
+                                @endif
+
+                                @if($r->is_current)
+                                <span class="current-badge">In Queue</span>
+                                @endif
+
+                            </div>
                         </td>
 
                         <td>
+                            @if($r->status == 'Pending')
+
                             <a href="/admin/status/{{ $r->id }}/Approved">
                                 <button class="btn btn-approve">Approve</button>
                             </a>
@@ -129,6 +167,12 @@
                             <a href="/admin/status/{{ $r->id }}/Rejected">
                                 <button class="btn btn-reject">Reject</button>
                             </a>
+
+                            @else
+
+                            <button class="btn btn-disabled">Done</button>
+
+                            @endif
                         </td>
 
                     </tr>

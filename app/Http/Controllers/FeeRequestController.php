@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\FeeRequest;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FeeRequestController extends Controller
 {
-
     public function store(Request $request)
     {
         $user = Auth::user();
 
-        $lastToken = FeeRequest::max('token_number');
-        $newToken = $lastToken ? $lastToken + 1 : 1;
+        if ($user->status == 'inactive') {
+            return back()->with('error', 'Account is inactive');
+        }
+
+        $last = FeeRequest::max('token_number');
+        $token = $last ? $last + 1 : 1;
+        $hasCurrent = FeeRequest::where('is_current', true)->exists();
 
         FeeRequest::create([
             'user_id' => $user->id,
@@ -23,24 +29,68 @@ class FeeRequestController extends Controller
             'email' => $user->email,
             'fee_for' => $request->fee_for,
             'amount' => $request->amount,
-            'token_number' => $newToken,
+            'token_number' => $token,
+            'is_current' => $hasCurrent ? false : true,
         ]);
 
-        return back()->with('token', $newToken);
+        $this->sendMail();
+
+        return back()->with('token', $token);
+    }
+
+    public function updateStatus($id, $status)
+    {
+        $req = FeeRequest::findOrFail($id);
+
+        $req->status = $status;
+
+        // সব current off 
+        FeeRequest::where('is_current', true)->update(['is_current' => false]);
+
+        // যেটাতে click করা হয়েছে → সেটাই current
+        $req->is_current = true;
+        $req->save();
+        $this->sendMail();
+
+        // reject count logic
+        if ($status == 'Rejected') {
+            $count = FeeRequest::where('user_id', $req->user_id)
+                ->where('status', 'Rejected')
+                ->whereMonth('created_at', Carbon::now()->month)
+                ->count();
+
+            if ($count >= 3) {
+                $user = User::find($req->user_id);
+                $user->status = 'inactive';
+                $user->save();
+            }
+        }
+
+        return back();
+    }
+
+    private function sendMail()
+    {
+        $current = FeeRequest::where('is_current', true)->first();
+        if (!$current) return;
+
+        $targetToken = $current->token_number + 2;
+
+        $student = FeeRequest::where('token_number', $targetToken)->first();
+
+        if ($student) {
+            Mail::raw(
+                "Your serial {$student->token_number}, current is {$current->token_number}",
+                function ($m) use ($student) {
+                    $m->to($student->email)->subject('Token Update');
+                }
+            );
+        }
     }
 
     public function adminIndex()
     {
         $requests = FeeRequest::orderBy('token_number')->get();
         return view('admin.tokens', compact('requests'));
-    }
-
-    public function updateStatus($id, $status)
-    {
-        $req = FeeRequest::findOrFail($id);
-        $req->status = $status;
-        $req->save();
-
-        return back();
     }
 }

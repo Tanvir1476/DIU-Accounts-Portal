@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function () {
         // Update
         Route::post('/update/{id}', [FeeController::class, 'update']);
 
+
         Route::get('/tokens', [FeeRequestController::class, 'adminIndex']);
         Route::get('/status/{id}/{status}', [FeeRequestController::class, 'updateStatus']);
     });

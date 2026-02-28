@@ -9,8 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+public function up(): void
+{
     Schema::create('fee_requests', function (Blueprint $table) {
         $table->id();
         $table->unsignedBigInteger('user_id');
@@ -19,6 +19,8 @@ return new class extends Migration
         $table->string('fee_for');
         $table->integer('amount');
         $table->integer('token_number')->unique();
+        $table->string('status')->default('Pending');
+        $table->boolean('is_current')->default(false); 
         $table->timestamps();
     });
 }

@@ -9,7 +9,7 @@
     width: 350px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     margin-left: 600px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 h1 {
@@ -57,7 +57,7 @@ button:hover {
     color: #064231;
     text-align: center;
     border-radius: 8px;
-    font-weight: 200;
+    
 }
 </style>
 
@@ -94,6 +94,12 @@ button:hover {
     @if(session('token'))
     <div class="token-box">
          Your Token Number is: <b>{{ session('token') }}</b>
+    </div>
+    @endif
+    
+    @if(session('error'))
+    <div class="token-box">
+        <b style="color: red;">{{ session('error') }}</b><br><a href="/contact" style="text-decoration: underline;">Contact Accounts Office</a> 
     </div>
     @endif
 
