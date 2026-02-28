@@ -2,8 +2,9 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FeeRequestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeeRequestController;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 Route::get('/', function () {
@@ -34,6 +35,8 @@ Route::get('/gettoken', function () {
 });
 
 Route::post('/fee-request', [FeeRequestController::class, 'store'])->name('fee.request');
+Route::get('/payment-history', [FeeRequestController::class, 'paymentHistory'])->name('payment.history');
+Route::get('/invoice/{id}', [FeeRequestController::class, 'downloadInvoice'])->name('invoice.download');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

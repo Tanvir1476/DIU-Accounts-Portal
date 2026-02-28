@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class FeeRequestController extends Controller
 {
@@ -92,5 +93,40 @@ class FeeRequestController extends Controller
     {
         $requests = FeeRequest::orderBy('token_number')->get();
         return view('admin.tokens', compact('requests'));
+    }
+
+    public function paymentHistory(Request $request)
+    {
+        $query = FeeRequest::where('user_id', Auth::id());
+
+        if ($request->search) {
+            $query->where('fee_for', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filter == 'month') {
+            $query->whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year);
+        }
+
+        if ($request->filter == 'year') {
+            $query->whereYear('created_at', now()->year);
+        }
+
+        $requests = $query->orderBy('id', 'desc')->get();
+
+        return view('student.payment_history', compact('requests'));
+    }
+
+    public function downloadInvoice($id)
+    {
+        $data = FeeRequest::findOrFail($id);
+
+        if ($data->status != 'Approved') {
+            return back()->with('error', 'Invoice not available');
+        }
+
+        $pdf = Pdf::loadView('student.invoice_pdf', compact('data'));
+
+        return $pdf->download('DIU Payment Receipt.pdf');
     }
 }

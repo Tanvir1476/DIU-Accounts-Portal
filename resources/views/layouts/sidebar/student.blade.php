@@ -73,5 +73,10 @@
             <i class="fa-solid fa-ticket"></i>
             Get Token
         </a>
+
+        <a href="payment-history">
+            <i class="fa-solid fa-file-invoice"></i>
+            Payment History 
+        </a>
     </nav>
 </aside
