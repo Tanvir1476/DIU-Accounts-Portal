@@ -162,4 +162,29 @@ class FeeRequestController extends Controller
 
         return back()->with('success', 'Notification Sent!');
     }
+
+    public function inactiveUsers()
+    {
+
+        $users = User::where('status', 'inactive')->get();
+
+        return view('admin.inactive_users', compact('users'));
+    }
+
+    public function activateUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->status = 'active';
+        $user->save();
+
+        Mail::raw(
+            "Your student account is activated",
+            function ($m) use ($user) {
+                $m->to($user->email)
+                    ->subject('Account Activated');
+            }
+        );
+
+        return back()->with('success', 'User activated successfully');
+    }
 }

@@ -23,5 +23,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/push-notification', [FeeRequestController::class, 'pushPage'])->name('admin.push.page');
         Route::get('/send/{id}', [FeeRequestController::class, 'sendSingleNotification'])->name('admin.send.single');
+
+        Route::get('/inactive-users', [FeeRequestController::class, 'inactiveUsers'])->name('admin.inactive.users');
+        Route::get('/activate/{id}', [FeeRequestController::class, 'activateUser'])->name('admin.activate.user');
     });
 });

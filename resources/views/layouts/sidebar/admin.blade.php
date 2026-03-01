@@ -75,9 +75,9 @@
             View Total Serial List
         </a>
 
-        <a href="">
+        <a href="/admin/inactive-users">
             <i class="fa-solid fa-ticket"></i>
-            Give Token
+            Activate User
         </a>
     </nav>
 </aside
