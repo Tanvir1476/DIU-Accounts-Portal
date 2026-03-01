@@ -65,9 +65,9 @@
             Dashboard
         </a>
 
-        <a href="/admin/add">
-            <i class="fa-solid fa-money-bill-wave"></i>
-            Semester Fee
+        <a href="/admin/push-notification">
+            <i class="fa-solid fa-bell"></i>
+            Push Notification
         </a>
 
         <a href="/admin/tokens">

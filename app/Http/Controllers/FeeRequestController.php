@@ -129,4 +129,37 @@ class FeeRequestController extends Controller
 
         return $pdf->download('DIU Payment Receipt.pdf');
     }
+
+
+    public function pushPage()
+    {
+        $requests = FeeRequest::where('status', 'Pending')
+            ->orderBy('token_number')
+            ->get();
+
+        return view('admin.push_notification', compact('requests'));
+    }
+
+
+    public function sendSingleNotification($id)
+    {
+        $student = FeeRequest::findOrFail($id);
+
+        if ($student->status != 'Pending') {
+            return back()->with('error', 'Cannot send notification');
+        }
+
+        Mail::raw(
+            "Please Complete your payment within 30 seconds",
+            function ($m) use ($student) {
+                $m->to($student->email)
+                    ->subject('Payment Reminder');
+            }
+        );
+
+        $student->notified = true;
+        $student->save();
+
+        return back()->with('success', 'Notification Sent!');
+    }
 }

@@ -24,7 +24,7 @@
             }
 
             td {
-                padding: 10px;
+                padding: 8px;
                 border-bottom: 1px solid #f2f2f2;
             }
 
@@ -66,12 +66,10 @@
                 background: gray;
             }
 
-            form {
-                margin-left: 260px;
-            }
-
             .filter-box {
+                margin-left: 260px;
                 margin-bottom: 15px;
+                margin-top: 20px;
                 display: flex;
                 gap: 10px;
                 align-items: center;
@@ -106,8 +104,6 @@
             }
         </style>
 
-        <h2>Payment History</h2>
-
         <form method="GET" action="{{ route('payment.history') }}" class="filter-box">
 
             <input type="text" name="search" placeholder="Search..."
@@ -129,6 +125,7 @@
                     <th>Token</th>
                     <th>Fee For</th>
                     <th>Amount</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -138,6 +135,7 @@
                     <td>{{ $r->token_number }}</td>
                     <td>{{ $r->fee_for }}</td>
                     <td>{{ $r->amount }}</td>
+                    <td>{{ $r->created_at->format('d M Y, h:i A')}}</td>
 
                     <td>
                         @if($r->status == 'Approved')
