@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h2 class="font-semibold text-xl text-gray-800 ">
+    <h2 class="font-normal text-l text-gray-800">
         <style>
             body {
                 background: #f5f7fa;
@@ -8,9 +8,9 @@
 
             .page-title {
                 text-align: center;
-                margin-top: 15px;
+                margin-top: 60px;
                 margin-left: 150px;
-                font-size: 35px;
+                font-size: 30px;
                 font-weight: bold;
             }
 
@@ -55,7 +55,7 @@
             }
         </style>
 
-        <h2 class="page-title">Edit Fee</h2>
+        <h2 class="page-title">Edit Semester Fee</h2>
 
         <div class="form-container">
 

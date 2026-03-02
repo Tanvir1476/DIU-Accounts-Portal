@@ -1,11 +1,11 @@
 <x-app-layout>
-    <h2 class="font-semibold text-xl text-gray-800 ">
+    <h2 class="font-normal text-l text-gray-800">
 
         <style>
             .header-area {
                 width: 100%;
                 max-width: 700px;
-                margin: 40px auto 20px 450px;
+                margin: 80px auto 20px 450px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -20,7 +20,7 @@
             .btn-view {
                 background: #16a34a;
                 color: white;
-                padding: 10px 25px;
+                padding: 8px 25px;
                 border-radius: 8px;
                 cursor: pointer;
                 text-decoration: none;

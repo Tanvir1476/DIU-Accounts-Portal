@@ -1,14 +1,9 @@
 <x-app-layout>
-    <h2 class="font-semibold text-xl text-gray-800 ">
+    <h2 class="font-normal text-l text-gray-800">
         <style>
             img {
                 height: 30px;
                 width: 150px;
-            }
-
-            body {
-                background: #f5f7fa;
-                font-family: Arial, Helvetica, sans-serif;
             }
 
             .content {
@@ -16,7 +11,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin-top: 10px;
+                margin-top: 60px;
                 background: white;
                 padding: 30px;
                 border-radius: 12px;
@@ -47,7 +42,7 @@
                 background: #2563eb;
                 margin-left: 5px;
                 color: white;
-                padding: 10px 25px;
+                padding: 8px 40px;
                 border: none;
                 border-radius: 8px;
                 cursor: pointer;
