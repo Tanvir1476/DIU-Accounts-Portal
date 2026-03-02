@@ -4,14 +4,15 @@
     <style>
         .container {
             padding: 20px;
-            margin-left: 240px;
+            margin-left: 220px;
             width: calc(100% - 240px);
             background: #f9fafb;
         }
 
         .title {
-            font-size: 22px;
+            font-size: 30px;
             font-weight: 600;
+            margin-top: 50px;
             margin-bottom: 20px;
             color: #111827;
         }

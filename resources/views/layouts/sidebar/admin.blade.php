@@ -8,7 +8,7 @@
     .sidebar {
         width: 220px;
         height: 100vh;
-        background-color: #2c3e50;
+        background-color: #15203a;
         color: white;
         display: flex;
         flex-direction: column;
@@ -16,7 +16,12 @@
         overflow: hidden;
         position: fixed;
         left: 0;
-        top: 69px;
+        top: 60px;
+    }
+
+    .sidebar-menu a.active {
+        background-color: #2563eb;
+        font-weight: 500;
     }
 
     .sidebar-header {
@@ -24,11 +29,13 @@
         font-size: 22px;
         font-weight: 600;
         border-bottom: 1px solid #34495e;
+        color: #e5e7eb;
     }
 
     .sidebar-menu {
         padding: 10px;
         overflow: hidden;
+        color: #e5e7eb;
     }
 
     .sidebar-menu a {
@@ -45,7 +52,7 @@
     }
 
     .sidebar-menu a:hover {
-        background-color: #34495e;
+        background-color: #1e293b;
     }
 
     .main_content {
@@ -60,22 +67,22 @@
     </div>
 
     <nav class="sidebar-menu">
-        <a href="">
+        <a href="/admin/dashboard" class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-gauge"></i>
             Dashboard
         </a>
 
-        <a href="/admin/push-notification">
+        <a href="/admin/push-notification" class="{{ request()->is('admin/push-notification') ? 'active' : '' }}">
             <i class="fa-solid fa-bell"></i>
             Push Notification
         </a>
 
-        <a href="/admin/tokens">
+        <a href="/admin/tokens" class="{{ request()->is('admin/tokens') ? 'active' : '' }}">
             <i class="fa-solid fa-list"></i>
             View Total Serial List
         </a>
 
-        <a href="/admin/inactive-users">
+        <a href="/admin/inactive-users" class="{{ request()->is('admin/inactive-users') ? 'active' : '' }}">
             <i class="fa-solid fa-ticket"></i>
             Activate User
         </a>

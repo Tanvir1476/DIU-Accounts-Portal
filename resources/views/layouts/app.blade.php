@@ -22,33 +22,36 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
         @isset($header)
         <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto py-6 px-4">
                 {{ $header }}
             </div>
         </header>
         @endisset
 
-        <!-- Page Content -->
-        <main>
+        <main class="pt-16">
             @auth
-            @if(auth()->user()->role == 'admin')
-            @include('layouts.sidebar.admin')
-            @elseif(auth()->user()->role == 'student')
-            @include('layouts.sidebar.student')
-            @endif
+                @if(auth()->user()->role == 'admin')
+                    @include('layouts.sidebar.admin')
+                @elseif(auth()->user()->role == 'student')
+                    @include('layouts.sidebar.student')
+                @endif
             @endauth
-            {{ $slot }}
+
+            <!-- FIXED CONTENT AREA -->
+            <div class="md:ml-64 p-4">
+                {{ $slot }}
+            </div>
+
         </main>
     </div>
 </body>
-
 </html>

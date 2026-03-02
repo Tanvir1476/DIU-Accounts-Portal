@@ -1,5 +1,5 @@
 <x-app-layout>
-        <h2 class="font-semibold text-xl text-gray-800 ">
+        <h2 class="font-normal text-l text-gray-800 ">
 <style>
 
 .container {
@@ -9,7 +9,7 @@
     width: 350px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     margin-left: 600px;
-    margin-top: 40px;
+    margin-top: 75px;
 }
 
 h1 {

@@ -1,21 +1,15 @@
 <x-app-layout>
-    <h2 class="font-semibold text-xl text-gray-800 "></h2>
+    <h2 class="font-normal text-l text-gray-800 "></h2>
 
     <style>
         .container {
             padding: 20px;
         }
 
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
         table {
-            width: 75%;
-            border-collapse: collapse;
+            width: 85%;
             margin-top: 20px;
             margin-left: 260px;
-            background: white;
         }
 
         th,
@@ -30,9 +24,10 @@
         }
 
         p {
-            font-size: 25px;
+            font-size: 30px;
             margin-left: 260px;
-            font-weight: bolder;
+            font-weight: 800;
+            margin-top: 60px;
         }
 
         .btn {
@@ -55,18 +50,9 @@
 
     <div class="container">
 
-        <p>Push Notification Panel</p>
-
-        @if(session('success'))
-        <p style="color:green;">{{ session('success') }}</p>
-        @endif
-
-        @if(session('error'))
-        <p style="color:red;">{{ session('error') }}</p>
-        @endif
-
+        <p>Push Notification</p>
         <div class="table-wrapper">
-            <table>
+            <table border="1">
                 <thead>
                     <tr>
                         <th>Token</th>

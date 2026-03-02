@@ -1,11 +1,11 @@
 <x-app-layout>
-    <h2 class="font-semibold text-xl text-gray-800 ">
+    <h2 class="font-normal text-l text-gray-800 ">
         <style>
             .table-box {
                 background: #fff;
                 padding: 20px;
                 border-radius: 12px;
-                margin-top: 30px;
+                margin-top: 10px;
                 margin-left: 260px;
                 width: calc(100% - 300px);
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -19,7 +19,8 @@
             th {
                 text-align: left;
                 padding: 10px;
-                font-weight: 600;
+                font-weight: 800;
+                font-size: 20px;
                 border-bottom: 2px solid #eee;
             }
 
@@ -69,7 +70,7 @@
             .filter-box {
                 margin-left: 260px;
                 margin-bottom: 15px;
-                margin-top: 20px;
+                margin-top: 80px;
                 display: flex;
                 gap: 10px;
                 align-items: center;
@@ -127,7 +128,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Payment Receipt</th>
                 </tr>
 
                 @foreach($requests as $r)

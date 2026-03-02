@@ -2,12 +2,13 @@
     img {
         height: 30px;
         width: 150px;
+        margin-top: 0;
     }
 
     .sidebar {
         width: 220px;
         height: 100vh;
-        background-color: #2c3e50;
+        background-color: #15203a;
         color: white;
         display: flex;
         flex-direction: column;
@@ -15,7 +16,12 @@
         overflow: hidden;
         position: fixed;
         left: 0;
-        top: 69px;
+        top: 60px;
+    }
+
+    .sidebar-menu a.active {
+        background-color: #2563eb;
+        font-weight: 500;
     }
 
     .sidebar-header {
@@ -23,11 +29,13 @@
         font-size: 22px;
         font-weight: 600;
         border-bottom: 1px solid #34495e;
+        color: #e5e7eb;
     }
 
     .sidebar-menu {
         padding: 10px;
         overflow: hidden;
+        color: #e5e7eb;
     }
 
     .sidebar-menu a {
@@ -39,12 +47,12 @@
         color: white;
         text-decoration: none;
         border-radius: 4px;
-        font-size: 15px;
-        font-weight: 200;
+        font-size: 14px;
+        font-weight: 300;
     }
 
     .sidebar-menu a:hover {
-        background-color: #34495e;
+        background-color: #1e293b;
     }
 
     .main_content {
@@ -59,24 +67,24 @@
     </div>
 
     <nav class="sidebar-menu">
-        <a href="">
+        <a href="/dashboard" class="{{ request()->is('/dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-gauge"></i>
             Dashboard
         </a>
 
-        <a href="">
+        <a href="/view_serial" class="{{ request()->is('view_serial') ? 'active' : '' }}">
             <i class="fa-solid fa-list"></i>
             View Serial
         </a>
 
-        <a href="gettoken">
+        <a href="/gettoken" class="{{ request()->is('gettoken') ? 'active' : '' }}">
             <i class="fa-solid fa-ticket"></i>
             Get Token
         </a>
 
-        <a href="payment-history">
+        <a href="/payment-history" class="{{ request()->is('payment-history') ? 'active' : '' }}">
             <i class="fa-solid fa-file-invoice"></i>
-            Payment History 
+            Payment History
         </a>
     </nav>
-</aside
+</aside>

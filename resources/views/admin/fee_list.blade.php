@@ -2,11 +2,6 @@
     <h2 class="font-semibold text-xl text-gray-800 ">
 
         <style>
-            body {
-                background: #f5f7fa;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
             .header-area {
                 width: 100%;
                 max-width: 700px;
