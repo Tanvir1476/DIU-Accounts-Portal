@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeeRequestController;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\PaymentController;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 
 Route::get('/', function () {
@@ -39,6 +41,14 @@ Route::get('/view_serial', [FeeRequestController::class, 'studentIndex']);
 Route::post('/fee-request', [FeeRequestController::class, 'store'])->name('fee.request');
 Route::get('/payment-history', [FeeRequestController::class, 'paymentHistory'])->name('payment.history');
 Route::get('/invoice/{id}', [FeeRequestController::class, 'downloadInvoice'])->name('invoice.download');
+
+
+Route::get('/pay_online', function () {return view('student/pay_online');});
+Route::post('/pay', [PaymentController::class,'pay'])->name('pay');
+Route::post('/success', [PaymentController::class,'success'])->withoutMiddleware([VerifyCsrfToken::class]);
+Route::post('/fail', [PaymentController::class,'fail'])->withoutMiddleware([VerifyCsrfToken::class]);
+Route::post('/cancel', [PaymentController::class,'cancel'])->withoutMiddleware([VerifyCsrfToken::class]);
+Route::get('/online-payment-history',[PaymentController::class,'history'])->name('payment.history');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

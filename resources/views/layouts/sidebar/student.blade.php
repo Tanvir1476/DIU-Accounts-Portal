@@ -82,9 +82,20 @@
             Get Token
         </a>
 
+        <a href="/pay_online" class="{{ request()->is('pay_online') ? 'active' : '' }}">
+            <i class="fa-solid fa-list"></i>
+            Pay Online
+        </a>
+
+        <a href="/online-payment-history" class="{{ request()->is('online-payment-history') ? 'active' : '' }}">
+            <i class="fa-solid fa-file-invoice"></i>
+            Online Payment History
+        </a>
+
         <a href="/payment-history" class="{{ request()->is('payment-history') ? 'active' : '' }}">
             <i class="fa-solid fa-file-invoice"></i>
             Payment History
         </a>
+
     </nav>
 </aside>
