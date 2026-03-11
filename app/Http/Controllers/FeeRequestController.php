@@ -94,7 +94,11 @@ class FeeRequestController extends Controller
         $requests = FeeRequest::orderBy('token_number')->get();
         return view('admin.tokens', compact('requests'));
     }
-
+    public function studentIndex()
+    {
+        $requests = FeeRequest::orderBy('token_number')->get();
+        return view('student.serial', compact('requests'));
+    }
     public function paymentHistory(Request $request)
     {
         $query = FeeRequest::where('user_id', Auth::id());

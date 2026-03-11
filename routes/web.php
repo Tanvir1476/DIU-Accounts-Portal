@@ -34,6 +34,8 @@ Route::get('/gettoken', function () {
     return view('student/get_token');
 });
 
+Route::get('/view_serial', [FeeRequestController::class, 'studentIndex']);
+
 Route::post('/fee-request', [FeeRequestController::class, 'store'])->name('fee.request');
 Route::get('/payment-history', [FeeRequestController::class, 'paymentHistory'])->name('payment.history');
 Route::get('/invoice/{id}', [FeeRequestController::class, 'downloadInvoice'])->name('invoice.download');
