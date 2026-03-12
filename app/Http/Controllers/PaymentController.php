@@ -57,7 +57,8 @@ class PaymentController extends Controller
         $tran = $request->tran_id;
 
         $user_id = explode('_', $tran)[0];
-
+        Auth::loginUsingId($user_id);
+        
         Payment::create([
             'user_id' => $user_id,
             'amount' => $request->amount,

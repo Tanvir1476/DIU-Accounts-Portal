@@ -36,7 +36,7 @@
 
         <p>Your payment has been completed successfully.</p>
 
-        <a href="/dashboard" class="btn-home">
+        <a href="/student-dashboard" class="btn-home">
             Go Dashboard
         </a>
 
