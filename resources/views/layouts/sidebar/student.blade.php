@@ -67,7 +67,7 @@
     </div>
 
     <nav class="sidebar-menu">
-        <a href="/dashboard" class="{{ request()->is('/dashboard') ? 'active' : '' }}">
+        <a href="/student-dashboard" class="{{ request()->is('student-dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-gauge"></i>
             Dashboard
         </a>
@@ -81,6 +81,11 @@
             <i class="fa-solid fa-ticket"></i>
             Get Token
         </a>
+        
+        <a href="/payment-history" class="{{ request()->is('payment-history') ? 'active' : '' }}">
+            <i class="fa-solid fa-file-invoice"></i>
+            Payment History
+        </a>
 
         <a href="/pay_online" class="{{ request()->is('pay_online') ? 'active' : '' }}">
             <i class="fa-solid fa-list"></i>
@@ -90,11 +95,6 @@
         <a href="/online-payment-history" class="{{ request()->is('online-payment-history') ? 'active' : '' }}">
             <i class="fa-solid fa-file-invoice"></i>
             Online Payment History
-        </a>
-
-        <a href="/payment-history" class="{{ request()->is('payment-history') ? 'active' : '' }}">
-            <i class="fa-solid fa-file-invoice"></i>
-            Payment History
         </a>
 
     </nav>

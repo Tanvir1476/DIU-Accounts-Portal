@@ -50,5 +50,9 @@ Route::post('/fail', [PaymentController::class,'fail'])->withoutMiddleware([Veri
 Route::post('/cancel', [PaymentController::class,'cancel'])->withoutMiddleware([VerifyCsrfToken::class]);
 Route::get('/online-payment-history',[PaymentController::class,'history'])->name('payment.history');
 
+Route::get('/student-dashboard',[DashboardController::class,'index'])
+->middleware('auth')
+->name('student.dashboard');
+
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
