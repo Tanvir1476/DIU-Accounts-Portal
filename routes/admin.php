@@ -6,6 +6,7 @@ use App\Http\Controllers\FeeRequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\BroadcastController;
+use App\Http\Controllers\AdminStudentController;
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
@@ -35,5 +36,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/broadcast', [BroadcastController::class, 'index']);
         Route::post('/broadcast/send', [BroadcastController::class, 'send']);
+
+        Route::get('/students', [AdminStudentController::class, 'index']);
+        Route::get('/student/{id}', [AdminStudentController::class, 'view']);
+        Route::post('/student/approve/{id}', [AdminStudentController::class, 'approve']);
     });
 });

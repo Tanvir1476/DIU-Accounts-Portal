@@ -71,10 +71,16 @@
             <i class="fa-solid fa-gauge"></i>
             Dashboard
         </a>
+
+        <a href="/admin/students" class="{{ request()->is('admin/students') ? 'active' : '' }}">
+            <i class="fa-solid fa-user-graduate"></i>
+            Student List
+        </a>
         <a href="/admin/add" class="{{ request()->is('admin/add') ? 'active' : '' }}">
             <i class="fa-solid fa-money-bill-wave"></i>
             Semester Fee
         </a>
+
         <a href="/admin/push-notification" class="{{ request()->is('admin/push-notification') ? 'active' : '' }}">
             <i class="fa-solid fa-bell"></i>
             Push Notification

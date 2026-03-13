@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Payment;
-use App\Models\FeeRequest;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Announcement;
+use App\Models\FeeRequest;
+use App\Models\Payment;
+use App\Models\StudentProfile;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -25,7 +26,27 @@ class DashboardController extends Controller
 
         $totalPaid = $onlinePaid + $tokenPaid;
 
-        $totalPayable = 685000;
+        $profile = StudentProfile::where('user_id', $user->id)->first();
+
+        $department = $profile->department ?? null;
+
+
+        if ($department == "SWE") {
+
+            $totalPayable = 800000;
+        } elseif ($department == "CSE") {
+
+            $totalPayable = 1000000;
+        } elseif ($department == "NFE") {
+
+            $totalPayable = 500000;
+        } elseif ($department == "EEE") {
+
+            $totalPayable = 600000;
+        } else {
+
+            $totalPayable = 0;
+        }
 
         $totalDue = $totalPayable - $totalPaid;
 
