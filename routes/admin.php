@@ -11,8 +11,6 @@ use App\Http\Controllers\AdminStudentController;
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
 
-        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
         Route::get('/add', [FeeController::class, 'addForm']);
         Route::post('/save', [FeeController::class, 'saveFee']);
         Route::get('/list', [FeeController::class, 'list']);
@@ -40,5 +38,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/students', [AdminStudentController::class, 'index']);
         Route::get('/student/{id}', [AdminStudentController::class, 'view']);
         Route::post('/student/approve/{id}', [AdminStudentController::class, 'approve']);
+
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     });
 });
