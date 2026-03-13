@@ -35,7 +35,7 @@ input[readonly] {
     background: #f2f2f2;
 }
 
-button {
+.button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -46,7 +46,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.button:hover {
     background: #5a67d8;
 }
 
@@ -89,7 +89,7 @@ button:hover {
         <input type="number" name="amount" placeholder="Enter Amount" required>
     </div>
 
-    <button type="submit">Get Token</button>
+    <button type="submit" class="button">Get Token</button>
 
     @if(session('token'))
     <div class="token-box">

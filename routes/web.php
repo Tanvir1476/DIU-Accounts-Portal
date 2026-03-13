@@ -7,6 +7,7 @@ use App\Http\Controllers\FeeRequestController;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use App\Http\Controllers\StudentProfileController;
 
 
 Route::get('/', function () {
@@ -53,6 +54,9 @@ Route::get('/online-payment-history',[PaymentController::class,'history'])->name
 Route::get('/student-dashboard',[DashboardController::class,'index'])
 ->middleware('auth')
 ->name('student.dashboard');
+
+Route::get('/student-profile',[StudentProfileController::class,'index'])->middleware('auth')->name('student.profile');
+Route::post('/student-profile',[StudentProfileController::class,'update'])->middleware('auth');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

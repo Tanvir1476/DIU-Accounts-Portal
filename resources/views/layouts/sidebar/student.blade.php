@@ -72,6 +72,11 @@
             Dashboard
         </a>
 
+        <a href="/student-profile" class="{{ request()->is('student-profile') ? 'active' : '' }}">
+            <i class="fa-solid fa-user-graduate"></i>
+            Student Profile
+        </a>
+
         <a href="/view_serial" class="{{ request()->is('view_serial') ? 'active' : '' }}">
             <i class="fa-solid fa-list"></i>
             View Serial
@@ -81,7 +86,7 @@
             <i class="fa-solid fa-ticket"></i>
             Get Token
         </a>
-        
+
         <a href="/payment-history" class="{{ request()->is('payment-history') ? 'active' : '' }}">
             <i class="fa-solid fa-file-invoice"></i>
             Payment History
