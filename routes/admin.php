@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\FeeRequestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AnnouncementController;
 
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
@@ -26,5 +27,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/inactive-users', [FeeRequestController::class, 'inactiveUsers'])->name('admin.inactive.users');
         Route::get('/activate/{id}', [FeeRequestController::class, 'activateUser'])->name('admin.activate.user');
+
+        Route::get('/announcements', [AnnouncementController::class, 'index']);
+        Route::post('/announcements', [AnnouncementController::class, 'store']);
+        Route::delete('/announcements/{id}', [AnnouncementController::class, 'destroy']);
     });
 });

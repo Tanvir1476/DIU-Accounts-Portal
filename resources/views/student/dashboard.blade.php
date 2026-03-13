@@ -66,6 +66,53 @@
             font-size: 25px;
             font-weight: 600;
             color: black;
+            margin-bottom: 20px;
+        }
+
+        .announcement-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .announcement-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all .15s ease;
+        }
+
+        .announcement-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .announcement-heading {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .announcement-message {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .announcement-date {
+            font-size: 12px;
+            color: #9ca3af;
         }
     </style>
 
@@ -104,6 +151,17 @@
     <div class="section">
         <p>Recent Payments</p>
         <canvas id="tokenChart" height="100"></canvas>
+    </div>
+
+    <div class="section">
+        <p>Latest Announcements</p>
+        @foreach ($announcements as $a)
+            <div class="announcement-card">
+                <div class="announcement-header"> <span class="announcement-heading">{{ $a->title }}</span> <span
+                        class="announcement-date"> {{ $a->created_at->format('d M Y') }} </span> </div>
+                <div class="announcement-message"> {{ $a->message }} </div>
+            </div>
+        @endforeach
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

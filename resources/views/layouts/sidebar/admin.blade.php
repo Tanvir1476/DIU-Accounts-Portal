@@ -89,5 +89,10 @@
             <i class="fa-solid fa-ticket"></i>
             Activate User
         </a>
+
+        <a href="/admin/announcements" class="{{ request()->is('admin/announcements') ? 'active' : '' }}">
+            <i class="fa-solid fa-bullhorn"></i>
+            Announcement
+        </a>
     </nav>
 </aside

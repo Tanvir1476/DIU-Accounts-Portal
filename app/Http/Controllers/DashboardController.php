@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\FeeRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Announcement;
+
 
 
 class DashboardController extends Controller
@@ -41,13 +43,18 @@ class DashboardController extends Controller
         $tokenLabels = $tokenRequests->pluck('fee_for');
         $tokenAmounts = $tokenRequests->pluck('amount');
 
+        $announcements = Announcement::latest()
+            ->take(5)
+            ->get();
+
         return view('student.dashboard', compact(
             'totalPaid',
             'totalPayable',
             'totalDue',
             'onlinePaid',
             'recentPayments',
-            'tokenRequests'
+            'tokenRequests',
+            'announcements'
         ));
     }
 }
