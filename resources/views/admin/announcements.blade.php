@@ -113,7 +113,7 @@
                         padding: 12px 18px;
                         border-radius: 8px;
                         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-                        border-left: 4px solid #22c55e;
+                        border-left: 4px solid #16793a;
                         font-size: 17px;
                         z-index: 9999;
                     }

@@ -94,5 +94,11 @@
             <i class="fa-solid fa-bullhorn"></i>
             Announcement
         </a>
+
+        <a href="/admin/broadcast" class="{{ request()->is('admin/broadcast') ? 'active' : '' }}">
+            <i class="fa-solid fa-broadcast-tower"></i>
+            Emergency Broadcast
+        </a>
+
     </nav>
 </aside
