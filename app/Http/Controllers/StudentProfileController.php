@@ -20,6 +20,18 @@ class StudentProfileController extends Controller
     public function update(Request $request)
     {
 
+        $profile = StudentProfile::where('user_id', Auth::id())->first();
+
+        /* block edit if approved */
+
+        if ($profile && $profile->approved) {
+
+            return back()->with('error', 'Profile already approved');
+        }
+
+
+        /* create or update profile */
+
         $profile = StudentProfile::updateOrCreate(
 
             ['user_id' => Auth::id()],
@@ -33,6 +45,9 @@ class StudentProfileController extends Controller
 
         );
 
+
+        /* photo upload */
+
         if ($request->hasFile('photo')) {
 
             $photo = $request->file('photo')->store('profiles', 'public');
@@ -40,6 +55,7 @@ class StudentProfileController extends Controller
             $profile->photo = $photo;
             $profile->save();
         }
+
 
         return back()->with('success', 'Profile Updated Successfully');
     }

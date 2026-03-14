@@ -31,10 +31,13 @@ class AdminStudentController extends Controller
 
         $profile = StudentProfile::where('user_id', $id)->first();
 
-        $profile->approved = true;
+        if (!$profile) {
+            return back()->with('error', 'Profile not found');
+        }
 
+        $profile->approved = 1;
         $profile->save();
 
-        return back()->with('success', 'Student Approved');
+        return back();
     }
 }

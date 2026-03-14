@@ -96,7 +96,7 @@
 
             <label>Department</label>
 
-            <select name="department">
+            <select name="department" @if ($profile && $profile->approved) disabled @endif>
 
                 <option value="">Select Department</option>
 

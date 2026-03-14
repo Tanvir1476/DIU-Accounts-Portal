@@ -90,13 +90,16 @@
                         <button class="view-btn">View Details</button>
                     </a>
 
-                    <form action="/admin/student/approve/{{ $student->id }}" method="POST" style="display:inline">
-
-                        @csrf
-
-                        <button type="submit" class="approve-btn">Approve</button>
-
-                    </form>
+                    @if (optional($student->profile)->approved)
+                        <button style="background:gray;color:white;border:none;padding:6px 10px;">
+                            Approved
+                        </button>
+                    @else
+                        <form action="/admin/student/approve/{{ $student->id }}" method="POST" style="display:inline">
+                            @csrf
+                            <button type="submit" class="approve-btn">Approve</button>
+                        </form>
+                    @endif
 
                 </td>
 

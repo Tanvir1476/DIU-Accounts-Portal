@@ -28,24 +28,32 @@ class DashboardController extends Controller
 
         $profile = StudentProfile::where('user_id', $user->id)->first();
 
-        $department = $profile->department ?? null;
-
-
-        if ($department == "SWE") {
-
-            $totalPayable = 800000;
-        } elseif ($department == "CSE") {
-
-            $totalPayable = 1000000;
-        } elseif ($department == "NFE") {
-
-            $totalPayable = 500000;
-        } elseif ($department == "EEE") {
-
-            $totalPayable = 600000;
-        } else {
+        if (!$profile || $profile->approved == 0) {
 
             $totalPayable = 0;
+        } else {
+
+            switch ($profile->department) {
+
+                case 'SWE':
+                    $totalPayable = 800000;
+                    break;
+
+                case 'CSE':
+                    $totalPayable = 1000000;
+                    break;
+
+                case 'EEE':
+                    $totalPayable = 600000;
+                    break;
+
+                case 'NFE':
+                    $totalPayable = 500000;
+                    break;
+
+                default:
+                    $totalPayable = 0;
+            }
         }
 
         $totalDue = $totalPayable - $totalPaid;
