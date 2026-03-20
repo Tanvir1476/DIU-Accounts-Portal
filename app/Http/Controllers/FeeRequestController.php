@@ -14,6 +14,13 @@ class FeeRequestController extends Controller
 {
     public function store(Request $request)
     {
+        $currentTime = Carbon::now()->format('H'); 
+
+        /* allow only 9AM - 4PM */
+        if ($currentTime < 9 || $currentTime >= 16) {
+            return back()->with('error', 'Accounts is OPEN only from 9 AM to 4 PM');
+        }
+
         $user = Auth::user();
 
         if ($user->status == 'inactive') {
